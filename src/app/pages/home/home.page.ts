@@ -13,9 +13,9 @@ export class HomePage {
     //Para definir una variable se ocupa 
     //nombre :Tipo="HolaMundo";
     //Pueden ser String, Boolean, Any , Array
-    rut:String="20280074-2";
-    nombreCompleto: String;
-    edad:Number;
+    //rut:String="20280074-2";
+    //nombreCompleto: String;
+    //edad:Number;
 //Controles de formularios asociados a la etiqueta <ion-input>
 // <ion-input [formControl]="elRut"> </ion-input>
 persona = new FormGroup({
@@ -23,9 +23,19 @@ persona = new FormGroup({
   elNombreCompleto : new FormControl(''),
   elEdad : new FormControl('')
 })
+//Creacion de arreglo
+lista_persona = new Array ();
+perso:any;
 //creacion de un metodo
 grabar(){
-  console.log(this.persona.value);
+    console.log(this.persona.value);
+    this.perso = {
+        rut:this.persona.controls.elRut.value,
+        nombre:this.persona.controls.elNombreCompleto.value,
+        edad:this.persona.controls.elEdad.value
+    };
+    console.log(this.perso);
+    this.lista_persona.push(this.perso);
 }
 eliminar(){}
 
