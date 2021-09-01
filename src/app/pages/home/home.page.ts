@@ -27,15 +27,22 @@ persona = new FormGroup({
 lista_persona = new Array ();
 perso:any;
 //creacion de un metodo
-grabar(){
-    console.log(this.persona.value);
-    this.perso = {
-        rut:this.persona.controls.elRut.value,
-        nombre:this.persona.controls.elNombreCompleto.value,
-        edad:this.persona.controls.elEdad.value
-    };
-    console.log(this.perso);
-    this.lista_persona.push(this.perso);
+
+/*grabar(){
+    alert(this.persona.controls.elRut.value)
+    localStorage.setItem('misdatos','Hola mundo');
+    alert("grabo");
+}*/
+grabar1(){
+  this.perso = {
+      rut:this.persona.controls.elRut.value,
+      nombre:this.persona.controls.elNombreCompleto.value,
+      edad:this.persona.controls.elEdad.value
+  };
+  this.lista_persona.push(this.perso); 
+  var datos = this.lista_persona;
+  localStorage.setItem('misdatos',JSON.stringify(datos));
+  alert("grabo");
 }
 eliminar(){}
 
